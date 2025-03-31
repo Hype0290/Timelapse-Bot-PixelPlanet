@@ -1,6 +1,6 @@
 # 📸 PixelPlanet Timelapser
 
-This is a python tool that downloads changes on the canvas in live time, and it does NOT use the history mode.
+This is a python tool that downloads changes on the canvas in live time, and it does **NOT** use the history mode.
 
 ### Usage
 
