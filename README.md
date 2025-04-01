@@ -1,6 +1,6 @@
 # 📸 PixelPlanet Timelapser
 
-[![License](https://img.shields.io/badge/License-WTFPL-brightgreen)](https://opensource.org/licenses/WTFPL)
+[![License](https://img.shields.io/badge/License-WTFPL-brightgreen)](https://www.wtfpl.net/)
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
 [![GitHub stars](https://img.shields.io/github/stars/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/network)
