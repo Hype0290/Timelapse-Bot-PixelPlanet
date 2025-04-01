@@ -33,7 +33,7 @@ python3 timelapser.py -h
 
 To create a timelapse of a specific area:
 ```bash
-python3 timelapser.py 100_200 300_400 t 0 pixelplanet.fun
+python3 timelapser.py 100_200 300_400 0 pixelplanet.fun
 ```
 
 To list available canvases:
