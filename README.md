@@ -1,12 +1,17 @@
 # 📸 PixelPlanet Timelapser
 
-This is a python tool that downloads changes on the canvas in live time, and it does **NOT** use the history mode.
+[![License](https://img.shields.io/badge/License-WTFPL-brightgreen)](https://opensource.org/licenses/WTFPL)
+[![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
+[![GitHub stars](https://img.shields.io/github/stars/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/network)
 
-### Usage
+This is a Python tool that downloads changes on the canvas in real-time, without using the history mode.
 
-To use the PixelPlanet Timelapser, run the script with the following commands:
+---
 
-#### Fetch and Save Timelapse Frames
+## ⚙️ Usage
+
+### Fetch and Save Timelapse Frames
 ```bash
 python3 timelapser.py startX_startY endX_endY canvasID website [no_compare]
 ```
@@ -16,13 +21,13 @@ python3 timelapser.py startX_startY endX_endY canvasID website [no_compare]
 - `website`: PixelPlanet clone website (e.g., `pixelplanet.fun`).
 - `[no_compare]`: Optional. Add this to save all frames, even if no pixel changes are detected.
 
-#### List Available Canvases
+### List Available Canvases
 ```bash
 python3 timelapser.py canvases "website"
 ```
 - `website`: PixelPlanet clone website to fetch canvas information.
 
-#### Display Help
+### Display Help
 ```bash
 python3 timelapser.py -h
 ```
@@ -48,35 +53,35 @@ ffmpeg -framerate 60 -f image2 -i frame/t%d.png -c:v libvpx-vp9 -pix_fmt yuva420
 
 ---
 
-### 🛠️ Installation
+## 🛠️ Installation
 
-#### Prerequisites
+### Prerequisites
 - Python 3.7 or higher
 - `pip` (Python package manager)
 - `ffmpeg` (for creating videos from frames)
 
-#### Install on Linux
+### Install on Linux
 
-##### Debian/Ubuntu
+#### Debian/Ubuntu
 ```bash
 sudo apt update
 sudo apt install python3 python3-pip ffmpeg
 pip3 install -r requirements.txt
 ```
 
-##### Fedora
+#### Fedora
 ```bash
 sudo dnf install python3 python3-pip ffmpeg
 pip3 install -r requirements.txt
 ```
 
-##### Arch Linux
+#### Arch Linux
 ```bash
 sudo pacman -S python python-pip ffmpeg
 pip3 install -r requirements.txt
 ```
 
-#### Install on Windows
+### Install on Windows
 
 1. Download and install [Python](https://www.python.org/downloads/) (ensure to check "Add Python to PATH" during installation).
 2. Download and install [ffmpeg](https://ffmpeg.org/download.html) and add it to your system's PATH.
@@ -85,11 +90,11 @@ pip3 install -r requirements.txt
     pip install -r requirements.txt
     ```
 
---- 
+---
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the [WTFPL License](https://opensource.org/licenses/WTFPL). See the `LICENSE` file for details.
 
 ---
 
@@ -101,4 +106,4 @@ Contributions are welcome! Feel free to submit issues or pull requests to improv
 
 ## 📧 Contact
 
-For questions or feedback, please reach out to the project maintainer.
+For questions or feedback, please reach out to the project maintainer: [Hype0290](https://github.com/Hype0290)
