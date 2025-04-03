@@ -13,6 +13,7 @@
         -> \033[95mShow this help message.\033[0m
 
 Add "no_compare" as an argument to always save frames.
+Add "timestamp" as an argument to add timestamp to each frame.
 """
 
 import sys
