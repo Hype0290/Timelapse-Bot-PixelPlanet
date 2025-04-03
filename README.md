@@ -1,4 +1,5 @@
 # 📸 PixelPlanet Timelapser
+## (Might work weirdly on pixelplanet)
 
 [![License](https://img.shields.io/badge/License-WTFPL-brightgreen)](https://www.wtfpl.net/)
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
