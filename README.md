@@ -11,7 +11,7 @@ This is a Python tool that downloads changes on the canvas in real-time, without
 
 ### ⚡ TODO
 
-[ ] Add option to show the time on the frames
+[✅] Add option to show the time on the frames
 
 
 
@@ -21,14 +21,14 @@ This is a Python tool that downloads changes on the canvas in real-time, without
 
 ### Fetch and Save Timelapse Frames
 ```bash
-python3 timelapser.py startX_startY endX_endY canvasID website [no_compare]
+python3 timelapser.py startX_startY endX_endY canvasID website [no_compare] [timestamp]
 ```
 - `startX_startY`: Starting coordinates of the area (e.g., `100_200`).
 - `endX_endY`: Ending coordinates of the area (e.g., `300_400`).
 - `canvasID`: ID of the canvas to fetch data from.
 - `website`: PixelPlanet clone website (e.g., `pixelplanet.fun`).
 - `[no_compare]`: Optional. Add this to save all frames, even if no pixel changes are detected.
-
+- `[timestamp]`: Optional. Add this to add a timestamp to each frame.
 ### List Available Canvases
 ```bash
 python3 timelapser.py canvases "website"
