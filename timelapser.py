@@ -317,13 +317,17 @@ async def timelapsing():
         while True:
             matrix = await get_area(session, x, y, w, h, canvas_id, website)
             
-            # Set timestamp flag in the matrix object
             matrix.use_timestamp = use_timestamp
             
             image_buffer = matrix.create_image('b')
             image_buffer.seek(0)
             new_img = PIL.Image.open(image_buffer)
             curr_pixels = list(new_img.getdata())
+
+            if use_timestamp:
+                timestamp_height = 50
+                timestamp_pixels = new_img.size[0] * timestamp_height
+                curr_pixels = curr_pixels[timestamp_pixels:] 
 
             filename = f"frame/{base_filename}{iteration}.png"
             if not no_compare:
