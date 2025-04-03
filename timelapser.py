@@ -3,7 +3,7 @@
 \033[96m📸 PixelPlanet Timelapser\033[0m
 
 \033[93mUsage:\033[0m
-    \033[92mtimelapser.py startX_startY endX_endY canvasID website [no_compare]\033[0m
+    \033[92mtimelapser.py startX_startY endX_endY canvasID website [no_compare] [timestamp]\033[0m
         (\033[95mUse the R key on PixelPlanet to copy coordinates\033[0m)
 
     \033[92mtimelapser.py canvases "website"\033[0m
@@ -12,7 +12,7 @@
     \033[92mtimelapser.py -h | --help\033[0m
         -> \033[95mShow this help message.\033[0m
 
-Add "no_compare" as the last argument to always save frames.
+Add "no_compare" as an argument to always save frames.
 """
 
 import sys
@@ -24,6 +24,8 @@ import asyncio
 import aiohttp
 import PIL.Image
 import logging
+from PIL import ImageDraw, ImageFont
+from datetime import datetime
 
 RED     = "\033[91m"
 GREEN   = "\033[92m"
@@ -66,6 +68,7 @@ class Matrix:
         self.width = None
         self.height = None
         self.matrix = {}
+        self.use_timestamp = False
 
     def add_coords(self, x: int, y: int, w: int, h: int):
         if self.start_x is None or x < self.start_x:
@@ -110,6 +113,46 @@ class Matrix:
                     pxls[x, y] = pixel_color
                 except (KeyError, AttributeError):
                     continue
+        
+        # Add timestamp overlay if enabled
+        if self.use_timestamp:
+            try:
+                draw = ImageDraw.Draw(img)
+                current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                
+                font_size = 32 
+                try:
+                    font = ImageFont.truetype("arial.ttf", font_size)
+                except IOError:
+                    try:
+                        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+                    except IOError:
+                        try:
+                            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", font_size)
+                        except IOError:
+                            font = ImageFont.load_default()
+                
+                text_width, text_height = draw.textbbox((0, 0), current_time, font=font)[2:4]
+                padding = 10
+                
+                draw.rectangle(
+                    (
+                        padding, 
+                        padding, 
+                        padding + text_width + padding, 
+                        padding + text_height + padding
+                    ), 
+                    fill=(80, 80, 80, 255),
+                    outline=(220, 220, 220, 200)
+                )
+                
+                shadow_offset = 1
+                draw.text((padding + shadow_offset + 2, padding + shadow_offset + 2), 
+                        current_time, fill=(30, 30, 30, 200), font=font)  # Shadow
+                draw.text((padding + 2, padding + 2), 
+                        current_time, fill=(240, 240, 240, 255), font=font)  # Main text
+            except Exception as e:
+                logging.warning(f"{YELLOW}⚠️ Could not add timestamp: {e}{RESET}")
 
         if filename:
             if filename == 'b':
@@ -238,7 +281,7 @@ async def get_area(session: aiohttp.ClientSession, x: int, y: int, w: int, h: in
 # ===================== Main Functions =====================
 
 async def timelapsing():
-    if len(sys.argv) not in (5, 6):
+    if len(sys.argv) < 5:
         print(f"{CYAN}{__doc__}{RESET}")
         sys.exit(1)
 
@@ -249,8 +292,14 @@ async def timelapsing():
     website = sys.argv[4]
 
     no_compare = False
-    if len(sys.argv) == 6 and sys.argv[5].lower() == "no_compare":
-        no_compare = True
+    use_timestamp = False
+    
+    # Process optional arguments
+    for arg in sys.argv[5:]:
+        if arg.lower() == "no_compare":
+            no_compare = True
+        elif arg.lower() == "timestamp":
+            use_timestamp = True
 
     x = int(start[0])
     y = int(start[1])
@@ -266,6 +315,10 @@ async def timelapsing():
     async with aiohttp.ClientSession(connector=connector) as session:
         while True:
             matrix = await get_area(session, x, y, w, h, canvas_id, website)
+            
+            # Set timestamp flag in the matrix object
+            matrix.use_timestamp = use_timestamp
+            
             image_buffer = matrix.create_image('b')
             image_buffer.seek(0)
             new_img = PIL.Image.open(image_buffer)
