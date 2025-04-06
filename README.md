@@ -12,7 +12,7 @@
 
 ## 📦 About
 
-**PixelPlanet Timelapser** is a Python tool that downloads canvas changes in real-time — no history mode needed!
+This is a Python tool that downloads canvas changes in real-time, without using history mode.
 
 ---
 
