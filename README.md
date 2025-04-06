@@ -1,41 +1,47 @@
-# 📸 PixelPlanet Timelapser
-### (Might work weirdly on pixelplanet, it works well on its clones tho)
+# 📸 PixelPlanet Timelapser  
+> *(Might work weirdly on PixelPlanet, but works well on its clones!)*  
 
-[![License](https://img.shields.io/badge/License-WTFPL-brightgreen)](https://www.wtfpl.net/)
-[![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/)
-[![GitHub stars](https://img.shields.io/github/stars/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Hype0290/timelapse-bot-pixelplanet?style=social)](https://github.com/Hype0290/timelapse-bot-pixelplanet/network)
-
-This is a Python tool that downloads changes on the canvas in real-time, without using the history mode.
+<p align="center">
+  <a href="https://www.wtfpl.net/"><img alt="License" src="https://img.shields.io/badge/License-WTFPL-brightgreen"></a>
+  <a href="https://www.python.org/"><img alt="Python Version" src="https://img.shields.io/badge/python-3.7%2B-blue.svg"></a>
+  <a href="https://github.com/Hype0290/timelapse-bot-pixelplanet/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Hype0290/timelapse-bot-pixelplanet?style=social"></a>
+  <a href="https://github.com/Hype0290/timelapse-bot-pixelplanet/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Hype0290/timelapse-bot-pixelplanet?style=social"></a>
+</p>
 
 ---
 
-### ⚡ TODO
+## 📦 About
 
-- [x] Add option to show the time on the frames
-- [ ] Add a GUI or something to be used easily (for lazy people)
+**PixelPlanet Timelapser** is a Python tool that downloads canvas changes in real-time — no history mode needed!
+
+---
+
+## ⚡ TODO
+
+- [x] Add option to show the time on the frames  
+- [ ] Add a GUI or something to be used easily (for lazy people 😴)
 
 ---
 
 ## ⚙️ Usage
 
-### Fetch and Save Timelapse Frames
+### 📥 Fetch and Save Timelapse Frames
 ```bash
 python3 timelapser.py startX_startY endX_endY canvasID website [no_compare] [timestamp]
 ```
-- `startX_startY`: Starting coordinates of the area (e.g., `100_200`).
-- `endX_endY`: Ending coordinates of the area (e.g., `300_400`).
-- `canvasID`: ID of the canvas to fetch data from.
-- `website`: PixelPlanet clone website (e.g., `pixelplanet.fun`).
-- `[no_compare]`: Optional. Add this to save all frames, even if no pixel changes are detected.
-- `[timestamp]`: Optional. Add this to add a timestamp to each frame.
-### List Available Canvases
+- `startX_startY`: Starting coordinates (e.g., `100_200`)
+- `endX_endY`: Ending coordinates (e.g., `300_400`)
+- `canvasID`: Canvas ID (usually `0`)
+- `website`: PixelPlanet clone domain (e.g., `pixelplanet.fun`)
+- `[no_compare]`: *(optional)* Save all frames, even without pixel changes
+- `[timestamp]`: *(optional)* Add timestamps to frames
+
+### 🗺️ List Available Canvases
 ```bash
 python3 timelapser.py canvases "website"
 ```
-- `website`: PixelPlanet clone website to fetch canvas information.
 
-### Display Help
+### 📖 Help
 ```bash
 python3 timelapser.py -h
 ```
@@ -44,17 +50,17 @@ python3 timelapser.py -h
 
 ## 🖥️ Example
 
-To create a timelapse of a specific area:
+Record a timelapse of a zone:
 ```bash
 python3 timelapser.py 100_200 300_400 0 pixelplanet.fun
 ```
 
-To list available canvases:
+List canvases:
 ```bash
 python3 timelapser.py canvases "pixelplanet.fun"
 ```
 
-To create a video from saved frames using `ffmpeg`:
+Create a video with `ffmpeg`:
 ```bash
 ffmpeg -framerate 60 -f image2 -i frame/t%d.png -c:v libvpx-vp9 -pix_fmt yuva420p timelapse.mp4
 ```
@@ -63,12 +69,12 @@ ffmpeg -framerate 60 -f image2 -i frame/t%d.png -c:v libvpx-vp9 -pix_fmt yuva420
 
 ## 🛠️ Installation
 
-### Prerequisites
-- Python 3.7 or higher
+### Requirements
+- Python 3.7+
 - `pip` (Python package manager)
-- `ffmpeg` (for creating videos from frames)
+- `ffmpeg` (for video generation)
 
-### Install on Linux
+### 🐧 Linux
 
 #### Debian/Ubuntu
 ```bash
@@ -89,29 +95,31 @@ sudo pacman -S python python-pip ffmpeg
 pip3 install -r requirements.txt
 ```
 
-### Install on Windows
+### 🪟 Windows
 
-1. Download and install [Python](https://www.python.org/downloads/) (ensure to check "Add Python to PATH" during installation).
-2. Download and install [ffmpeg](https://ffmpeg.org/download.html) and add it to your system's PATH.
-3. Open Command Prompt and run:
-    ```cmd
-    pip install -r requirements.txt
-    ```
+1. Install [Python](https://www.python.org/downloads/) (check "Add Python to PATH").
+2. Install [ffmpeg](https://ffmpeg.org/download.html) and add it to your PATH.
+3. In CMD:
+```cmd
+pip install -r requirements.txt
+```
 
 ---
 
 ## 📜 License
 
-This project is licensed under the [WTFPL License](https://opensource.org/licenses/WTFPL). See the `LICENSE` file for details.
+This project is licensed under the [WTFPL License](https://opensource.org/licenses/WTFPL).  
+See the `LICENSE` file for details.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to submit issues or pull requests to improve the project.
+Contributions are welcome!  
+Feel free to open issues or submit pull requests 💬
 
 ---
 
 ## 📧 Contact
 
-For questions or feedback, please reach out to the project maintainer: [Hype0290](https://github.com/Hype0290)
+Maintained by [**@Hype0290**](https://github.com/Hype0290)
