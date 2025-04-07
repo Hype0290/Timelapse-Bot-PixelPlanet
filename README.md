@@ -98,8 +98,15 @@ pip3 install -r requirements.txt
 ### 🪟 Windows
 
 1. Install [Python](https://www.python.org/downloads/) (check "Add Python to PATH").
-2. Install [ffmpeg](https://ffmpeg.org/download.html) and add it to your PATH.
-3. In CMD:
+2. Install `ffmpeg` via [Chocolatey](https://chocolatey.org/). In an **Administrator PowerShell**:
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol = `
+[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install ffmpeg -y
+```
+3. In CMD or PowerShell:
 ```cmd
 pip install -r requirements.txt
 ```
