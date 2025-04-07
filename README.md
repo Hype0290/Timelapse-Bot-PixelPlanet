@@ -1,5 +1,5 @@
 # 📸 PixelPlanet Timelapser  
-> *(Might work weirdly on PixelPlanet, but works well on its clones!)*  
+> *(Might work weirdly on PixelPlanet, but works well on its clones)*  
 
 <p align="center">
   <a href="https://www.wtfpl.net/"><img alt="License" src="https://img.shields.io/badge/License-WTFPL-brightgreen"></a>
