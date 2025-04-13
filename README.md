@@ -98,7 +98,7 @@ pip3 install -r requirements.txt
 ### 🪟 Windows
 
 1. Install [Python](https://www.python.org/downloads/) (make sure to check **"Add Python to PATH"**).
-2. Install `ffmpeg` via **winget** in an **Administrator PowerShell or CMD**:
+2. Install `ffmpeg` via **winget** in an **Administrator PowerShell**:
 ```powershell
 winget install ffmpeg
 ```
