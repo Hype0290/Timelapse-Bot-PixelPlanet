@@ -19,7 +19,7 @@ This is a Python tool that downloads canvas changes in real-time, without using 
 ## ⚡ TODO
 
 - [x] Add option to show the time on the frames  
-- [ ] Add a GUI or something to be used easily (for lazy people 😴)
+- [ ] Add a GUI or something to be used easily (for dumbasses)
 
 ---
 
